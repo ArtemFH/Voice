@@ -4,7 +4,7 @@ import {login} from "./actions";
 const initState = {
     user: null,
     loading: false,
-    errors: []
+    errors: false
 };
 
 export const userReducer = createSlice({
@@ -13,15 +13,16 @@ export const userReducer = createSlice({
     reducers: {},
     extraReducers: (builder => {
         builder.addCase(login.rejected, (state) => {
-            state.loading = 'idle'
+            state.loading = false
             state.errors = true;
         })
         builder.addCase(login.fulfilled, (state, action) => {
             state.user = action.payload
+            state.loading = false
             state.errors = false;
         })
         builder.addCase(login.pending, (state) => {
-            state.loading = 'pending';
+            state.loading = true;
             state.errors = false;
         })
     })

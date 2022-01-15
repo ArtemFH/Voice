@@ -9,13 +9,12 @@ function Login() {
     const $password = useRef(null);
 
     const {login} = useActions()
-    const {loading} = useSelector(state => state.user)
+    const {errors} = useSelector(state => state.user)
 
-    const [load, setLoad] = useState(false);
+    const [err, setErr] = useState(false);
     useEffect(() => {
-        setLoad(loading)
-    }, [loading])
-
+        setErr(errors)
+    }, [errors])
     const handleSubmit = (event) => {
         event.preventDefault();
 
@@ -29,8 +28,8 @@ function Login() {
         <form onSubmit={handleSubmit}>
             <input type={"email"} placeholder={"Email"} ref={$email}/>
             <input type={"password"} placeholder={"Password"} ref={$password}/>
-            {load && <Alert variant="outlined" severity="error" onClose={() => {
-                setLoad(false)
+            {err && <Alert variant="outlined" severity="error" onClose={() => {
+                setErr(false)
             }}>This is a success alert — check it out!</Alert>}
             <button type={"submit"}>Отправить</button>
         </form>
