@@ -1,5 +1,5 @@
 import {createSlice} from "@reduxjs/toolkit";
-import {login} from "./actions";
+import {login, me} from "./actions";
 
 const initState = {
     user: null,
@@ -8,21 +8,25 @@ const initState = {
 };
 
 export const userReducer = createSlice({
-    name: 'login',
+    name: 'user',
     initialState: initState,
     reducers: {},
     extraReducers: (builder => {
         builder.addCase(login.rejected, (state) => {
-            state.loading = false
+            state.loading = false;
             state.errors = true;
         })
         builder.addCase(login.fulfilled, (state, action) => {
             state.user = action.payload
-            state.loading = false
+            state.loading = false;
             state.errors = false;
         })
         builder.addCase(login.pending, (state) => {
             state.loading = true;
+            state.errors = false;
+        })
+        builder.addCase(me.fulfilled, (state, action) => {
+            state.user = action.payload;
             state.errors = false;
         })
     })
