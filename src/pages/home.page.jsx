@@ -1,9 +1,9 @@
-import Login from "../components/user/login/login";
+import Home from "../components/home/home";
 
 function Index() {
     return (
         <>
-            <Login/>
+            <Home/>
         </>
     )
 }

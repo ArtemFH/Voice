@@ -18,4 +18,5 @@ export default Layout;
 
 const Section = styled('div')`
   margin: 0 auto;
+  max-width: 1440px;
 `
