@@ -1,11 +1,11 @@
 import styled from "styled-components";
 import {Box} from "@mui/material";
 import logo from "./image/Logo.svg"
-import briefcase from "./image/items/briefcase.svg"
-import bell from "./image/items/bell.svg"
-import rss from "./image/items/rss.svg"
-import message_square from "./image/items/message-square.svg"
-import users from "./image/items/users.svg"
+import RssFeedIcon from '@mui/icons-material/RssFeed';
+import PeopleOutlineIcon from '@mui/icons-material/PeopleOutline';
+import BusinessCenter from "@mui/icons-material/BusinessCenter";
+import ChatBubbleOutlineIcon from "@mui/icons-material/ChatBubbleOutline";
+import NotificationsActiveIcon from '@mui/icons-material/NotificationsActive';
 
 function NavBar() {
     return (
@@ -17,24 +17,34 @@ function NavBar() {
                 <Block>
                     <Items>
                         <div>
-                            <img src={rss} alt={''}/>
-                            <span>FEED</span>
+                            <div>
+                                <RssFeedIcon/>
+                                <span>FEED</span>
+                            </div>
                         </div>
                         <div>
-                            <img src={users} alt={''}/>
-                            <span>NETWORK</span>
+                            <div>
+                                <PeopleOutlineIcon/>
+                                <span>NETWORK</span>
+                            </div>
                         </div>
                         <div>
-                            <img src={briefcase} alt={''}/>
-                            <span>JOBS</span>
+                            <div>
+                                <BusinessCenter/>
+                                <span>JOBS</span>
+                            </div>
                         </div>
                         <div>
-                            <img src={message_square} alt={''}/>
-                            <span>CHAT</span>
+                            <div>
+                                <ChatBubbleOutlineIcon/>
+                                <span>CHAT</span>
+                            </div>
                         </div>
                         <div>
-                            <img src={bell} alt={''}/>
-                            <span>NOTICE</span>
+                            <div>
+                                <NotificationsActiveIcon/>
+                                <span>NOTICE</span>
+                            </div>
                         </div>
                     </Items>
                 </Block>
@@ -75,10 +85,25 @@ const Items = styled(Box)`
     font-size: 12px;
     text-align: center;
     flex-direction: column;
-    justify-content: space-evenly;
   }
 
-  & div img {
+  & div div {
+    width: 66px;
+    height: 100%;
+    margin: 0 auto;
+    padding-top: 18px;
+  }
+
+  & div:first-child div {
+    color: #0275B1;
+    border-bottom: 2px #0275B1 solid;
+  }
+
+  & div div span {
+    padding-top: 12px;
+  }
+
+  & div div svg {
     width: 24px;
     height: 24px;
     margin: 0 auto;
