@@ -117,7 +117,6 @@ const Navbar = styled(Box)`
 `
 
 const NavItem = styled(NavLink)`
-
   width: 90px;
   color: #181818;
   font-size: 12px;
@@ -156,14 +155,14 @@ const BlockItem = styled(Box)`
 `
 
 const Items = styled(Box)`
-  display: flex;
   height: 100%;
+  display: flex;
 `
 
 const Block = styled(Box)`
-  position: relative;
   display: flex;
   padding: 0 20px;
+  position: relative;
   align-items: center;
   justify-content: center;
 `

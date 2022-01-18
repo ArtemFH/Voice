@@ -53,6 +53,7 @@ const Form = styled(Box)`
     padding-right: 20px;
   }
 
+
   & input {
     padding: 5px;
     outline: none;
@@ -75,17 +76,17 @@ const Form = styled(Box)`
 `
 
 const SearchWindow = styled(Box)`
-  height: 100vh;
   left: 0;
-  position: fixed;
   top: 0;
   width: 100vw;
+  height: 100vh;
+  position: fixed;
 `
 
 const Background = styled(Box)`
-  position: fixed;
-  display: flex;
   inset: 0;
-  background-color: rgba(0, 0, 0, 0.5);
   z-index: -1;
+  display: flex;
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.5);
 `
