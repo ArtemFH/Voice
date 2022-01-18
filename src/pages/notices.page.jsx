@@ -1,9 +1,7 @@
-import Home from "../components/home/home";
-
 function Index() {
     return (
         <>
-            <Home/>
+            Notices
         </>
     )
 }

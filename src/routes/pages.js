@@ -6,4 +6,8 @@ const Loader = (Component) => (props) => (
     </Suspense>
 )
 
-export const Home = Loader(lazy(() => import('../pages/home.page')));
+export const Feed = Loader(lazy(() => import('../pages/feed.page')));
+export const Network = Loader(lazy(() => import('../pages/network.page')));
+export const Jobs = Loader(lazy(() => import('../pages/jobs.page')));
+export const Chat = Loader(lazy(() => import('../pages/chat.page')));
+export const Notices = Loader(lazy(() => import('../pages/notices.page')));

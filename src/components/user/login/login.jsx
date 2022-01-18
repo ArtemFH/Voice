@@ -4,11 +4,10 @@ import {useSelector} from "react-redux";
 import {Alert} from "@mui/material";
 
 function Login() {
-
     const $email = useRef(null);
     const $password = useRef(null);
     const token = "r:0f6c400666d55b5d413350e4521d3c77"
-    const {me} = useActions()
+    const {me, login} = useActions()
     const {user, errors} = useSelector(state => state.user)
 
     const [err, setErr] = useState(false);
@@ -23,6 +22,7 @@ function Login() {
         const password = $password.current.value;
 
         me({token})
+        login({email, password})
     }
 
     return (
