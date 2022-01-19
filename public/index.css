@@ -17,3 +17,20 @@
     font-family: 'GothamMedium';
     src: local('GothamMedium'), url('fonts/gothampro_medium.ttf');
 }
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #808080;
+}
+
+::-webkit-resizer {
+    background-repeat: no-repeat;
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+}

@@ -1,14 +1,10 @@
 import styled from "styled-components";
 import {Outlet} from "react-router-dom";
-
 import NavBar from "../components/header/navbar";
 import Footer from "../components/footer/footer";
-import {useSelector} from "react-redux";
 import Search from "../components/search/search";
 
 function Layout() {
-    const {focus} = useSelector(state => state.search)
-
     return (
         <Section>
             <NavBar/>
@@ -16,7 +12,7 @@ function Layout() {
                 <Outlet/>
             </Body>
             <Footer/>
-            {focus && <Search/>}
+            <Search/>
         </Section>
     );
 }

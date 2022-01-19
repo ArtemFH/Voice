@@ -1,6 +1,16 @@
 import {$instance} from "../api";
 
 const search = async (data) => {
-    return await $instance.get(`/todos/${data}`)
+    const query = data.trim().split(' ');
+    return await $instance.get(`/event`, data ? {
+        params: {
+            tags: query
+        }
+    } : {})
 }
-export default {search}
+
+const exported = {
+    search
+}
+
+export default exported

@@ -1,20 +1,20 @@
-import App from './App';
-import React from 'react';
-import ReactDOM from 'react-dom';
-import {BrowserRouter} from 'react-router-dom';
-import {StyledEngineProvider} from '@mui/material/styles';
-import {Provider} from 'react-redux'
+import App from "./App";
+import React from "react";
+import ReactDOM from "react-dom";
+import {Provider} from "react-redux"
 import {store} from "./store/store";
+import GlobalStyles from "./globalStyles";
+import {BrowserRouter} from "react-router-dom";
+import {StyledEngineProvider} from "@mui/material/styles";
 
 ReactDOM.render(
-    <React.StrictMode>
-        <BrowserRouter>
-            <StyledEngineProvider injectFirst>
-                <Provider store={store}>
-                    <App/>
-                </Provider>
-            </StyledEngineProvider>
-        </BrowserRouter>
-    </React.StrictMode>,
+    <BrowserRouter>
+        <StyledEngineProvider injectFirst>
+            <Provider store={store}>
+                <App/>
+                <GlobalStyles/>
+            </Provider>
+        </StyledEngineProvider>
+    </BrowserRouter>,
     document.getElementById('root')
 );

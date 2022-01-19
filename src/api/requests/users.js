@@ -8,4 +8,9 @@ const me = async (token) => {
     return await $instance.get('users/me', {headers: {'Authorization': token,}})
 }
 
-export default {login, me}
+const exported = {
+    login,
+    me
+}
+
+export default exported

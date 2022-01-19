@@ -6,13 +6,14 @@ import {useActions} from "../../store/hook";
 import logo from "./image/Logo.svg"
 import SearchIcon from '@mui/icons-material/Search';
 import RssFeedIcon from '@mui/icons-material/RssFeed';
+import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import BusinessCenter from "@mui/icons-material/BusinessCenter";
 import PeopleOutlineIcon from '@mui/icons-material/PeopleOutline';
 import ChatBubbleOutlineIcon from "@mui/icons-material/ChatBubbleOutline";
 import NotificationsActiveIcon from '@mui/icons-material/NotificationsActive';
 
 function NavBar() {
-    const {focus} = useActions()
+    const {focus, search} = useActions()
 
     return (
         <Navbar>
@@ -58,13 +59,20 @@ function NavBar() {
                     <SearchIcon/>
                     <input type={'text'} placeholder={'Search'}/>
                 </Search>
-                <Plaste onClick={() => focus()}/>
+                <Overlay onClick={() => {
+                    focus(true);
+                    const letter = '';
+                    search({letter});
+                }}/>
             </Block>
             <Block>
                 <div>йух</div>
             </Block>
             <Block>
-                <div>йух</div>
+                <Other>
+                    <MoreHorizIcon/>
+                    <span>OTHER</span>
+                </Other>
             </Block>
         </Navbar>
     )
@@ -105,20 +113,16 @@ const Search = styled(Box)`
 `
 
 const Navbar = styled(Box)`
+  left: 50%;
   height: 80px;
   display: flex;
   position: fixed;
+  transform: translateX(-50%);
   font-family: GothamMedium, sans-serif;
-
-  & > div:not(& div:last-child) {
-    min-width: 90px;
-    border-right: 1px #F4F4F4 solid;
-  }
 `
 
 const NavItem = styled(NavLink)`
   width: 90px;
-  color: #181818;
   font-size: 12px;
   padding-top: 18px;
   text-decoration: none;
@@ -128,9 +132,22 @@ const NavItem = styled(NavLink)`
     border-bottom: 2px #0275B1 solid;
   }
 
-  &:hover div {
-    color: #008BCE;
-    border-bottom: 2px #008BCE solid;
+  & {
+    div {
+      color: #181818;
+      border-bottom-width: 2px;
+      border-bottom-style: solid;
+      border-bottom-color: transparent;
+      transition: color 0.3s ease, border-bottom-color 0.3s ease;
+    }
+
+    :hover div {
+      color: #008BCE;
+      border-bottom-width: 2px;
+      border-bottom-style: solid;
+      border-bottom-color: #008BCE;
+      transition: color 0.3s ease, border-bottom-color 0.3s ease;
+    }
   }
 `
 
@@ -167,9 +184,33 @@ const Block = styled(Box)`
   justify-content: center;
 `
 
-const Plaste = styled(Box)`
+const Other = styled(Box)`
+  width: 50px;
+  height: 100%;
+  display: flex;
+  font-size: 12px;
+  cursor: pointer;
+  align-items: center;
+  flex-direction: column;
+  transition: color 0.3s;
+  justify-content: center;
+  font-family: GothamMedium, sans-serif;
+
+  :hover {
+    color: #0275B1;
+  }
+`
+
+const Overlay = styled(Box)`
   width: 90%;
-  height: 80%;
+  height: 50%;
   margin: 0 auto;
+  cursor: pointer;
   position: absolute;
+  transition: all 0.5s ease;
+
+  :hover {
+    border-radius: 20px;
+    box-shadow: 0 0 50px 10px rgb(0 0 0 / 10%);
+  }
 `
