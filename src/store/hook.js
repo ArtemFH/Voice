@@ -9,6 +9,6 @@ export const useActions = () => {
     return bindActionCreators({
         ...UsersActionsCreator,
         ...SearchActionsCreator,
-        ...searchReducer.actions
+        ...searchReducer.actions,
     }, dispatch)
 }

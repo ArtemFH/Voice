@@ -1,5 +1,6 @@
 import {Box} from "@mui/material";
 import styled from "styled-components";
+import User from "../user/user";
 import {NavLink} from "react-router-dom";
 import {useActions} from "../../store/hook";
 
@@ -22,31 +23,31 @@ function NavBar() {
             </Block>
             <Block>
                 <Items>
-                    <NavItem to={'feed'}>
+                    <NavItem to={'/feed'}>
                         <BlockItem>
                             <RssFeedIcon/>
                             <span>FEED</span>
                         </BlockItem>
                     </NavItem>
-                    <NavItem to={'network'}>
+                    <NavItem to={'/network'}>
                         <BlockItem>
                             <PeopleOutlineIcon/>
                             <span>NETWORK</span>
                         </BlockItem>
                     </NavItem>
-                    <NavItem to={'jobs'}>
+                    <NavItem to={'/jobs'}>
                         <BlockItem>
                             <BusinessCenter/>
                             <span>JOBS</span>
                         </BlockItem>
                     </NavItem>
-                    <NavItem to={'chat'}>
+                    <NavItem to={'/chat'}>
                         <BlockItem>
                             <ChatBubbleOutlineIcon/>
                             <span>CHAT</span>
                         </BlockItem>
                     </NavItem>
-                    <NavItem to={'notices'}>
+                    <NavItem to={'/notices'}>
                         <BlockItem>
                             <NotificationsActiveIcon/>
                             <span>NOTICES</span>
@@ -61,12 +62,11 @@ function NavBar() {
                 </Search>
                 <Overlay onClick={() => {
                     focus(true);
-                    const letter = '';
-                    search({letter});
+                    search({letter: ''});
                 }}/>
             </Block>
             <Block>
-                <div>йух</div>
+                <User/>
             </Block>
             <Block>
                 <Other>
@@ -115,10 +115,16 @@ const Search = styled(Box)`
 const Navbar = styled(Box)`
   left: 50%;
   height: 80px;
+  width: 1440px;
   display: flex;
   position: fixed;
+  background-color: #FFFFFF;
   transform: translateX(-50%);
   font-family: GothamMedium, sans-serif;
+
+  & > div:not(div:last-child) {
+    border-right: 1px #F4F4F4 solid;
+  }
 `
 
 const NavItem = styled(NavLink)`
@@ -177,6 +183,7 @@ const Items = styled(Box)`
 `
 
 const Block = styled(Box)`
+  width: 100%;
   display: flex;
   padding: 0 20px;
   position: relative;

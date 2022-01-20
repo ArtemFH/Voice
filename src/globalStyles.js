@@ -87,6 +87,47 @@ const globalStyle = createGlobalStyle`
     transform: translateY(100%);
     transition: all 0.3s ease;
   }
+
+  .layout-enter {
+    opacity: 0;
+  }
+
+  .layout-enter-active {
+    opacity: 1;
+    transition: all 0.5s ease;
+  }
+
+  .layout-exit {
+    opacity: 1;
+  }
+
+  .layout-exit-active {
+    opacity: 0;
+    transition: all 0.5s ease;
+  }
+
+  .user-enter {
+    opacity: 0;
+    position: absolute;
+    transform: translateY(-100%);
+  }
+
+  .user-enter-active {
+    opacity: 1;
+    transform: translateY(0%);
+    transition: all 0.3s ease;
+  }
+
+  .user-exit {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+
+  .user-exit-active {
+    opacity: 0;
+    transform: translateY(100%);
+    transition: all 0.3s ease;
+  }
 `;
 
 export default globalStyle;

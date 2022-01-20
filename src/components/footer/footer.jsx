@@ -1,9 +1,16 @@
+import styled from "styled-components";
+
 function Footer() {
     return (
-        <footer>
+        <FooterBottom>
             Footer
-        </footer>
+        </FooterBottom>
     )
 }
 
 export default Footer;
+
+const FooterBottom = styled('footer')`
+  position: absolute;
+  bottom: 0
+`

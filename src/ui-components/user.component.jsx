@@ -13,7 +13,7 @@ function LayoutComponent() {
                 <CSSTransition
                     key={useLocation().pathname}
                     timeout={500}
-                    classNames={'layout'}
+                    classNames={'user'}
                     unmountOnExit
                 >
                     <Body>
@@ -35,6 +35,7 @@ const Section = styled('div')`
 `
 
 const Body = styled('div')`
+  width: 100%;
   z-index: -1;
   padding-top: 80px;
   position: absolute;

@@ -1,5 +1,5 @@
 import {useEffect, useRef, useState} from "react";
-import {useActions} from "../../../store/hook";
+import {useActions} from "../../store/hook";
 import {useSelector} from "react-redux";
 import {Alert} from "@mui/material";
 

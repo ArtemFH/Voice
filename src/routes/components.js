@@ -6,4 +6,5 @@ const Loader = (Component) => (props) => (
     </Suspense>
 )
 
-export const Layout = Loader(lazy(() => import('../ui-components/layout.component')));
+export const LayoutComponent = Loader(lazy(() => import('../ui-components/layout.component')));
+export const UserComponent = Loader(lazy(() => import('../ui-components/user.component')));
