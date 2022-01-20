@@ -1,5 +1,5 @@
+import {Box, TextField, Typography, Button} from "@mui/material";
 import styled from "styled-components";
-import {Box, FormControl, TextField, Typography, Button} from "@mui/material";
 
 function SignIn() {
     return (
@@ -8,7 +8,7 @@ function SignIn() {
                 <Typography component="h1" variant="h5">
                     Sign In
                 </Typography>
-                <Box component="form">
+                <Box>
                     <TextField
                         margin="normal"
                         required
@@ -43,7 +43,7 @@ function SignIn() {
 
 export default SignIn;
 
-const Form = styled(FormControl)`
+const Form = styled(Box)`
   right: 0;
   display: flex;
   flex-direction: row;
@@ -51,6 +51,6 @@ const Form = styled(FormControl)`
 
   & > div {
     width: 300px;
-    padding: 150px
+    padding: 150px;
   }
 `

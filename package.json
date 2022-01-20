@@ -10,7 +10,6 @@
     "@reduxjs/toolkit": "*",
     "axios": "*",
     "react": "*",
-    "react-bootstrap": "^2.1.1",
     "react-dom": "*",
     "react-iconly": "*",
     "react-redux": "*",

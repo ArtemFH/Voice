@@ -21,10 +21,20 @@
 * {
     margin: 0;
     padding: 0;
+    -moz-hyphens: auto;
+    -webkit-hyphens: auto;
+    -ms-hyphens: auto;
 }
 
-body {
+html, body {
     background-color: #F7F9FB;
+    width: 100%;
+    height: 100%;
+}
+
+body > div {
+    width: 100%;
+    height: 100%;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -37,4 +47,9 @@ body {
 
 ::-webkit-scrollbar {
     width: 5px;
+    height: 5px;
+}
+
+.overflow {
+    overflow: hidden;
 }

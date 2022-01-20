@@ -4,39 +4,75 @@ import NavBar from "../components/header/navbar";
 import Footer from "../components/footer/footer";
 import Search from "../components/search/search";
 import {TransitionGroup, CSSTransition} from "react-transition-group";
+import {Box} from "@mui/material";
+import {useState} from "react";
 
-function LayoutComponent() {
+
+function UserComponent() {
+    const [overflow, setOverflow] = useState(false)
     return (
         <Section>
             <NavBar/>
-            <TransitionGroup>
-                <CSSTransition
-                    key={useLocation().pathname}
-                    timeout={500}
-                    classNames={'user'}
-                    unmountOnExit
-                >
-                    <Body>
-                        {useOutlet()}
-                    </Body>
-                </CSSTransition>
-            </TransitionGroup>
+            <div className={overflow ? "overflow" : null}>
+                <Block>
+                    <TransitionGroup component={null}>
+                        <CSSTransition
+                            key={useLocation().pathname}
+                            timeout={500}
+                            classNames={'user'}
+                            unmountOnExit
+                            onEnter={() => setOverflow(true)}
+                            onExited={() => setOverflow(false)}
+                        >
+                            {useOutlet()}
+                        </CSSTransition>
+                    </TransitionGroup>
+                </Block>
+            </div>
             <Footer/>
             <Search/>
         </Section>
     );
 }
 
-export default LayoutComponent;
+export default UserComponent;
 
 const Section = styled('div')`
-  margin: 0 auto;
-  max-width: 1440px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: stretch;
+  align-content: stretch;
+  flex-direction: column;
+
+  header {
+    width: 100%;
+    height: auto;
+    flex-grow: 0;
+    display: flex;
+  }
+
+  & > div {
+    width: 100%;
+    height: auto;
+    flex-grow: 2;
+    display: flex;
+    position: relative;
+    justify-content: center;
+  }
+
+  footer {
+    width: 100%;
+    height: auto;
+    flex-grow: 0;
+  }
 `
 
-const Body = styled('div')`
-  width: 100%;
-  z-index: -1;
-  padding-top: 80px;
-  position: absolute;
+
+const Block = styled(Box)`
+  width: 1440px;
+  margin: 0 auto;
+  overflow: hidden;
+  position: relative;
 `

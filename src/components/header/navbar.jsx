@@ -112,14 +112,9 @@ const Search = styled(Box)`
   }
 `
 
-const Navbar = styled(Box)`
-  left: 50%;
+const Navbar = styled('header')`
   height: 80px;
-  width: 1440px;
-  display: flex;
-  position: fixed;
   background-color: #FFFFFF;
-  transform: translateX(-50%);
   font-family: GothamMedium, sans-serif;
 
   & > div:not(div:last-child) {

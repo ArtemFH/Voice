@@ -11,6 +11,4 @@ function Footer() {
 export default Footer;
 
 const FooterBottom = styled('footer')`
-  position: absolute;
-  bottom: 0
 `

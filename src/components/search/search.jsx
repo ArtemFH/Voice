@@ -123,7 +123,7 @@ const Form = styled(Box)`
   }
 `
 
-const SearchWindow = styled(Box)`
+const SearchWindow = styled('main')`
   left: 0;
   top: 0;
   width: 100vw;

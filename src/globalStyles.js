@@ -90,6 +90,7 @@ const globalStyle = createGlobalStyle`
 
   .layout-enter {
     opacity: 0;
+    position: absolute;
   }
 
   .layout-enter-active {
