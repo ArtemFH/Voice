@@ -3,21 +3,21 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@mui/material": "*",
     "@emotion/react": "*",
     "@emotion/styled": "*",
-    "@mui/icons-material": "*",
-    "@mui/material": "*",
     "@reduxjs/toolkit": "*",
+    "@mui/icons-material": "*",
     "axios": "*",
     "react": "*",
     "react-dom": "*",
-    "react-iconly": "*",
     "react-redux": "*",
-    "react-router-dom": "*",
+    "react-iconly": "*",
     "react-scripts": "*",
-    "react-transition-group": "^4.4.2",
-    "redux-devtools-extension": "*",
-    "styled-components": "*"
+    "react-router-dom": "*",
+    "styled-components": "*",
+    "react-transition-group": "*",
+    "redux-devtools-extension": "*"
   },
   "scripts": {
     "start": "react-scripts start",
