@@ -2,28 +2,28 @@ import {Box} from "@mui/material";
 import styled from "styled-components";
 import {NavLink} from "react-router-dom";
 
-function SignIn() {
+function SignIn(props) {
     return (
-        <NavLink to={'/user/sign-up'}>
+        <NavLink style={props.data ? {opacity: "0.7", pointerEvents: "none"} : null} to={'/user/sign-up'}>
             Sign Up
         </NavLink>
     )
 }
 
-function SignUp() {
+function SignUp(props) {
     return (
-        <NavLink to={'/user/sign-in'}>
+        <NavLink style={props.data ? {opacity: "0.7", pointerEvents: "none"} : null} to={'/user/sign-in'}>
             Sign In
         </NavLink>
     )
 }
 
-function User() {
+function User(props) {
     const auth = true;
 
     return (
         <>
-            {auth ? <Block><SignIn/><SignUp/></Block> : <Block>Auth</Block>}
+            {auth ? <Block><SignIn data={props.data}/><SignUp data={props.data}/></Block> : <Block>Auth</Block>}
         </>
     )
 }

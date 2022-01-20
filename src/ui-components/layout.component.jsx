@@ -5,17 +5,21 @@ import Footer from "../components/footer/footer";
 import Search from "../components/search/search";
 import {TransitionGroup, CSSTransition} from "react-transition-group";
 import {Box} from "@mui/material";
+import {useState} from "react";
 
 function LayoutComponent() {
+    const [isActive, setIsActive] = useState(false);
     return (
         <Section>
-            <NavBar/>
+            <NavBar data={isActive}/>
             <TransitionGroup>
                 <CSSTransition
                     key={useLocation().pathname}
                     timeout={500}
                     classNames={'layout'}
                     unmountOnExit
+                    onEnter={() => setIsActive(true)}
+                    onExited={() => setIsActive(false)}
                 >
                     <Grid>{useOutlet()}</Grid>
                 </CSSTransition>

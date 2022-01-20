@@ -1,6 +1,7 @@
+import {useState} from "react";
+import User from "../user/user";
 import {Box} from "@mui/material";
 import styled from "styled-components";
-import User from "../user/user";
 import {NavLink} from "react-router-dom";
 import {useActions} from "../../store/hook";
 
@@ -13,8 +14,25 @@ import PeopleOutlineIcon from '@mui/icons-material/PeopleOutline';
 import ChatBubbleOutlineIcon from "@mui/icons-material/ChatBubbleOutline";
 import NotificationsActiveIcon from '@mui/icons-material/NotificationsActive';
 
-function NavBar() {
-    const {focus, search} = useActions()
+function NavBar(props) {
+    const {focus, search} = useActions();
+
+    const navItems = [{
+        icon: <RssFeedIcon/>,
+        title: 'FEED'
+    }, {
+        icon: <PeopleOutlineIcon/>,
+        title: 'NETWORK'
+    }, {
+        icon: <BusinessCenter/>,
+        title: 'JOBS'
+    }, {
+        icon: <ChatBubbleOutlineIcon/>,
+        title: 'CHAT'
+    }, {
+        icon: <NotificationsActiveIcon/>,
+        title: 'NOTICES'
+    }]
 
     return (
         <Navbar>
@@ -23,36 +41,15 @@ function NavBar() {
             </Block>
             <Block>
                 <Items>
-                    <NavItem to={'/feed'}>
-                        <BlockItem>
-                            <RssFeedIcon/>
-                            <span>FEED</span>
-                        </BlockItem>
-                    </NavItem>
-                    <NavItem to={'/network'}>
-                        <BlockItem>
-                            <PeopleOutlineIcon/>
-                            <span>NETWORK</span>
-                        </BlockItem>
-                    </NavItem>
-                    <NavItem to={'/jobs'}>
-                        <BlockItem>
-                            <BusinessCenter/>
-                            <span>JOBS</span>
-                        </BlockItem>
-                    </NavItem>
-                    <NavItem to={'/chat'}>
-                        <BlockItem>
-                            <ChatBubbleOutlineIcon/>
-                            <span>CHAT</span>
-                        </BlockItem>
-                    </NavItem>
-                    <NavItem to={'/notices'}>
-                        <BlockItem>
-                            <NotificationsActiveIcon/>
-                            <span>NOTICES</span>
-                        </BlockItem>
-                    </NavItem>
+                    {navItems.map((data, key) =>
+                        <NavItem className={props.data ? "redirect" : null} key={key}
+                                 to={'/' + data.title.toLowerCase()}>
+                            <BlockItem>
+                                {data.icon}
+                                <span>{data.title}</span>
+                            </BlockItem>
+                        </NavItem>
+                    )}
                 </Items>
             </Block>
             <Block>
@@ -66,7 +63,7 @@ function NavBar() {
                 }}/>
             </Block>
             <Block>
-                <User/>
+                <User data={props.data}/>
             </Block>
             <Block>
                 <Other>
@@ -127,15 +124,23 @@ const NavItem = styled(NavLink)`
   font-size: 12px;
   padding-top: 18px;
   text-decoration: none;
+  transition: opacity 0.3s ease;
 
   &.active div {
     color: #0275B1;
     border-bottom: 2px #0275B1 solid;
   }
 
+  &.redirect:not(&.active) {
+    opacity: 0.3;
+    transition: all 0.3s ease;
+    pointer-events: none;
+  }
+
   & {
     div {
       color: #181818;
+      box-sizing: border-box;
       border-bottom-width: 2px;
       border-bottom-style: solid;
       border-bottom-color: transparent;
@@ -144,6 +149,7 @@ const NavItem = styled(NavLink)`
 
     :hover div {
       color: #008BCE;
+      box-sizing: border-box;
       border-bottom-width: 2px;
       border-bottom-style: solid;
       border-bottom-color: #008BCE;

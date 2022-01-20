@@ -7,22 +7,21 @@ import {TransitionGroup, CSSTransition} from "react-transition-group";
 import {Box} from "@mui/material";
 import {useState} from "react";
 
-
 function UserComponent() {
-    const [overflow, setOverflow] = useState(false)
+    const [isActive, setIsActive] = useState(false);
     return (
         <Section>
-            <NavBar/>
-            <div className={overflow ? "overflow" : null}>
+            <NavBar data={isActive}/>
+            <div className={isActive ? "overflow" : null}>
                 <Block>
-                    <TransitionGroup component={null}>
+                    <TransitionGroup children={true} component={null}>
                         <CSSTransition
                             key={useLocation().pathname}
                             timeout={500}
                             classNames={'user'}
                             unmountOnExit
-                            onEnter={() => setOverflow(true)}
-                            onExited={() => setOverflow(false)}
+                            onEnter={() => setIsActive(true)}
+                            onExited={() => setIsActive(false)}
                         >
                             {useOutlet()}
                         </CSSTransition>
