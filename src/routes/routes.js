@@ -1,15 +1,20 @@
 import {Navigate} from "react-router-dom";
-import {LayoutComponent, UserComponent} from "./components";
+// import {LayoutComponent, UserComponent} from "./components";
 
 import {
     Feed,
     Jobs,
     Chat,
-    SignUp,
-    SignIn,
+    // SignUp,
+    // SignIn,
     Notices,
     Network
 } from "./pages";
+import LayoutComponent from "../ui-components/layout.component";
+import UserComponent from "../ui-components/user.component";
+import SignIn from "../pages/user/signIn.page";
+import SignUp from "../pages/user/signUp.page";
+
 
 export const routes = [
     {

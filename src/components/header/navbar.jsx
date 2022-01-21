@@ -1,4 +1,3 @@
-import {useState} from "react";
 import User from "../user/user";
 import {Box} from "@mui/material";
 import styled from "styled-components";
@@ -18,18 +17,23 @@ function NavBar(props) {
     const {focus, search} = useActions();
 
     const navItems = [{
+        direction: 1,
         icon: <RssFeedIcon/>,
         title: 'FEED'
     }, {
+        direction: 2,
         icon: <PeopleOutlineIcon/>,
         title: 'NETWORK'
     }, {
+        direction: 3,
         icon: <BusinessCenter/>,
         title: 'JOBS'
     }, {
+        direction: 4,
         icon: <ChatBubbleOutlineIcon/>,
         title: 'CHAT'
     }, {
+        direction: 5,
         icon: <NotificationsActiveIcon/>,
         title: 'NOTICES'
     }]
@@ -40,9 +44,9 @@ function NavBar(props) {
                 <img src={logo} alt={''}/>
             </Block>
             <Block>
-                <Items>
+                <Items id={'navbar'}>
                     {navItems.map((data, key) =>
-                        <NavItem className={props.data ? "redirect" : null} key={key}
+                        <NavItem className={props.data ? "redirect" : null} id={data.direction} key={key}
                                  to={'/' + data.title.toLowerCase()}>
                             <BlockItem>
                                 {data.icon}

@@ -9,21 +9,28 @@ import {useState} from "react";
 
 function LayoutComponent() {
     const [isActive, setIsActive] = useState(false);
+
     return (
         <Section>
             <NavBar data={isActive}/>
-            <TransitionGroup>
-                <CSSTransition
-                    key={useLocation().pathname}
-                    timeout={500}
-                    classNames={'layout'}
-                    unmountOnExit
-                    onEnter={() => setIsActive(true)}
-                    onExited={() => setIsActive(false)}
-                >
-                    <Grid>{useOutlet()}</Grid>
-                </CSSTransition>
-            </TransitionGroup>
+            <div className={isActive ? "overflow" : null}>
+                <TransitionGroup component={null}>
+                    <CSSTransition
+                        key={useLocation().pathname}
+                        timeout={500}
+                        classNames={"left"}
+                        unmountOnExit
+                        onEnter={() => {
+                            setIsActive(true);
+                        }}
+                        onExited={() => {
+                            setIsActive(false);
+                        }}
+                    >
+                        <Grid>{useOutlet()}</Grid>
+                    </CSSTransition>
+                </TransitionGroup>
+            </div>
             <Footer/>
             <Search/>
         </Section>

@@ -88,29 +88,56 @@ const globalStyle = createGlobalStyle`
     transition: all 0.3s ease;
   }
 
-  .layout-enter {
+  .left-enter {
     opacity: 0;
     position: absolute;
+    transform: translateX(-100%);
   }
 
-  .layout-enter-active {
+  .left-enter-active {
     opacity: 1;
+    transform: translateX(0%);
     transition: all 0.5s ease;
   }
 
-  .layout-exit {
+  .left-exit {
+    transform: translateX(0%);
     opacity: 1;
   }
 
-  .layout-exit-active {
+  .left-exit-active {
     opacity: 0;
+    transform: translateX(100%);
+    transition: all 0.5s ease;
+  }
+
+  .right-enter {
+    opacity: 0;
+    position: absolute;
+    transform: translateX(100%);
+  }
+
+  .right-enter-active {
+    opacity: 1;
+    transform: translateX(0%);
+    transition: all 0.5s ease;
+  }
+
+  .right-exit {
+    transform: translateX(0%);
+    opacity: 1;
+  }
+
+  .right-exit-active {
+    opacity: 0;
+    transform: translateX(-100%);
     transition: all 0.5s ease;
   }
 
   .user-enter {
     opacity: 0;
     position: absolute;
-    transform: translateY(-100%);
+  + transform: translateY(- 100 %);
   }
 
   .user-enter-active {

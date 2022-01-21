@@ -14,7 +14,7 @@ function UserComponent() {
             <NavBar data={isActive}/>
             <div className={isActive ? "overflow" : null}>
                 <Block>
-                    <TransitionGroup children={true} component={null}>
+                    <TransitionGroup component={null}>
                         <CSSTransition
                             key={useLocation().pathname}
                             timeout={500}
